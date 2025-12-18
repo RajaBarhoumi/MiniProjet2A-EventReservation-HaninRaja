@@ -13,22 +13,30 @@ class Reservation {
     }
 
    public function create() {
-    $query = "INSERT INTO " . $this->table_name . " 
-              SET event_id=:event_id, name=:name, email=:email, phone=:phone";
+        $query = "INSERT INTO " . $this->table_name . " 
+                SET event_id=:event_id, name=:name, email=:email, phone=:phone";
 
-    $stmt = $this->conn->prepare($query);
+        $stmt = $this->conn->prepare($query);
 
-    $name  = htmlspecialchars(strip_tags($this->name));
-    $email = htmlspecialchars(strip_tags($this->email));
-    $phone = htmlspecialchars(strip_tags($this->phone));
+        $name  = htmlspecialchars(strip_tags($this->name));
+        $email = htmlspecialchars(strip_tags($this->email));
+        $phone = htmlspecialchars(strip_tags($this->phone));
 
-    $stmt->bindParam(":event_id", $this->event_id);
-    $stmt->bindParam(":name", $name);
-    $stmt->bindParam(":email", $email);
-    $stmt->bindParam(":phone", $phone);
+        $stmt->bindParam(":event_id", $this->event_id);
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":phone", $phone);
 
-    return $stmt->execute();
-}
+        return $stmt->execute();
+    }
+    
+    public function getByEvent($event_id) {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE event_id = :event_id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':event_id', $event_id);
+        $stmt->execute();
+        return $stmt;
+    }
 
 }
 ?>
