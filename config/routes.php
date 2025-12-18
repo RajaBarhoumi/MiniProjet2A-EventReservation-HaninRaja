@@ -1,7 +1,8 @@
 <?php
-function route($action, $db) {
+function route($action, $db)
+{
     $eventController = new EventController($db);
-    
+
     switch ($action) {
         case 'list':
             $eventController->listEvents();
@@ -10,8 +11,10 @@ function route($action, $db) {
             $id = $_GET['id'] ?? null;
             $eventController->showDetails($id);
             break;
-
-            default:
+        case 'reserve':
+            $eventController->reserve();
+            break;
+        default:
             $eventController->listEvents();
             break;
     }

@@ -1,5 +1,7 @@
 <?php
 require_once '../app/models/Event.php';
+
+require_once '../app/models/Reservation.php';
 class EventController {
     private $eventModel;
     private $db;
