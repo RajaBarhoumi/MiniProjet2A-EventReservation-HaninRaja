@@ -15,5 +15,11 @@ class EventController {
 
         include_once '../app/views/events/list.php';
     }
+    
+public function showDetails($id) {
+    $event = $this->eventModel->getById($id);
+    include_once __DIR__ . '/../views/events/details.php';
+}
+
 }
 ?>

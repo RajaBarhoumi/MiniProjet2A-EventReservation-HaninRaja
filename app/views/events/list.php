@@ -18,7 +18,9 @@
                         ?>
                     </p>
                     
-                    
+                     <a href="index.php?action=details&id=<?php echo $event['id']; ?>" class="btn-details">
+                        Voir les détails
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>

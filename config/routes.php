@@ -6,6 +6,10 @@ function route($action, $db) {
         case 'list':
             $eventController->listEvents();
             break;
+        case 'details':
+            $id = $_GET['id'] ?? null;
+            $eventController->showDetails($id);
+            break;
 
             default:
             $eventController->listEvents();
