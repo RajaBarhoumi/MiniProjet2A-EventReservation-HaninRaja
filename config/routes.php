@@ -2,7 +2,7 @@
 function route($action, $db)
 {
     $eventController = new EventController($db);
-
+    $adminController = new AdminController($db);
     switch ($action) {
         case 'list':
             $eventController->listEvents();
@@ -14,6 +14,20 @@ function route($action, $db)
         case 'reserve':
             $eventController->reserve();
             break;
+
+        case 'admin_login':
+            $adminController->login();
+            break;
+
+        case 'logout':
+            session_destroy();
+            header("Location: index.php");
+            break;
+
+        case 'admin_dashboard':
+            $adminController->dashboard();
+            break;
+
         default:
             $eventController->listEvents();
             break;
