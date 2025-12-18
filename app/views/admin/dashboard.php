@@ -1,3 +1,4 @@
+<?php include_once '../app/views/partials/header.php'; ?>
 <div class="admin-header">
     <h1>Tableau de Bord Admin</h1>
     <a href="index.php?action=add_event" class="btn-add">+ Ajouter un événement</a>
@@ -37,3 +38,4 @@
         <?php endif; ?>
     </tbody>
 </table>
+<?php include_once '../app/views/partials/footer.php'; ?>

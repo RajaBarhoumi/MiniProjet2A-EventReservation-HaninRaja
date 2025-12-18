@@ -1,3 +1,4 @@
+<?php include_once '../app/views/partials/header.php'; ?>
 <div class="login-container">
     <div class="login-card">
         <h2>Administration</h2>
@@ -23,3 +24,4 @@
         </p>
     </div>
 </div>
+<?php include_once '../app/views/partials/footer.php'; ?>
