@@ -27,6 +27,23 @@ function route($action, $db)
         case 'admin_dashboard':
             $adminController->dashboard();
             break;
+        case 'add_event':
+            $adminController->showEventForm();
+            break;
+
+        case 'edit_event':
+            $id = $_GET['id'] ?? null;
+            $adminController->showEventForm($id);
+            break;
+
+        case 'save_event':
+            $adminController->saveEvent();
+            break;
+
+        case 'delete_event':
+            $id = $_GET['id'] ?? null;
+            $adminController->deleteEvent($id);
+            break;
 
         default:
             $eventController->listEvents();
