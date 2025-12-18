@@ -1,3 +1,4 @@
+<?php include_once '../app/views/partials/header.php'; ?>
 <div class="admin-container">
     <a href="index.php?action=admin_dashboard" class="btn-back">← Retour au tableau de bord</a>
 
@@ -43,3 +44,4 @@
         </tbody>
     </table>
 </div>
+<?php include_once '../app/views/partials/footer.php'; ?>

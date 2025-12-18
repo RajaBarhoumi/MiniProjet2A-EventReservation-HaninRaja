@@ -1,4 +1,4 @@
-
+<?php include_once '../app/views/partials/header.php'; ?>
 <section class="welcome-section">
     <h1 style="text-align: center; color:#f557ae; margin-bottom: 40px;">
         📅 Événements à venir
@@ -30,4 +30,4 @@
         <?php endif; ?>
     </div>
 </section>
-
+<?php include_once '../app/views/partials/footer.php'; ?>

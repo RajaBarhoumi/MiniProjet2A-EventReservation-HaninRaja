@@ -4,6 +4,7 @@ if (!isset($event) || !is_array($event)) {
     return; 
 }
 ?>
+<?php include_once '../app/views/partials/header.php'; ?>
 
 <div class="event-details-container">
     <div class="event-details">
@@ -33,3 +34,4 @@ if (!isset($event) || !is_array($event)) {
         <button type="submit">Confirmer la réservation</button>
     </form>
 </div>
+<?php include_once '../app/views/partials/footer.php'; ?>
