@@ -14,6 +14,16 @@ function route($action, $db)
         case 'reserve':
             $eventController->reserve();
             break;
+
+        case 'admin_login':
+            $adminController->login();
+            break;
+
+        case 'logout':
+            session_destroy();
+            header("Location: index.php");
+            break;
+
         default:
             $eventController->listEvents();
             break;
