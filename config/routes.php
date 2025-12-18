@@ -24,6 +24,10 @@ function route($action, $db)
             header("Location: index.php");
             break;
 
+        case 'admin_dashboard':
+            $adminController->dashboard();
+            break;
+
         default:
             $eventController->listEvents();
             break;
