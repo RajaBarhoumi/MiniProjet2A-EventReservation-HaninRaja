@@ -10,6 +10,16 @@ class AdminController {
         $this->eventModel = new Event($db);
     }
 
+    private function checkAuth() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (!isset($_SESSION['admin_id'])) {
+            header("Location: index.php?action=admin_login");
+            exit(); 
+        }
+    }
+
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $user = $this->adminModel->login($_POST['username'], $_POST['password']);
@@ -30,6 +40,13 @@ class AdminController {
         session_destroy(); 
         header("Location: index.php?action=admin_login");
         exit();
+    }
+
+    public function dashboard() {
+        $this->checkAuth(); 
+        $stmt = $this->eventModel->readAll();
+        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        include_once '../app/views/admin/dashboard.php';
     }
 }
 ?>

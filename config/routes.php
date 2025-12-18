@@ -2,7 +2,7 @@
 function route($action, $db)
 {
     $eventController = new EventController($db);
-
+    $adminController = new AdminController($db);
     switch ($action) {
         case 'list':
             $eventController->listEvents();
