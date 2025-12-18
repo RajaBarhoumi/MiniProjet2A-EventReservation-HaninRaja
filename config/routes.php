@@ -44,6 +44,11 @@ function route($action, $db)
             $id = $_GET['id'] ?? null;
             $adminController->deleteEvent($id);
             break;
+        
+        case 'view_reservations':
+            $id = $_GET['id'] ?? null;
+            $adminController->viewEventReservations($id);
+            break;
 
         default:
             $eventController->listEvents();

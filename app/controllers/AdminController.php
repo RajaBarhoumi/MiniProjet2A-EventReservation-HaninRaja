@@ -102,4 +102,13 @@ class AdminController
 
         include_once '../app/views/admin/form_event.php';
     }
+
+    public function viewEventReservations($event_id) {
+        $this->checkAuth();$event = $this->eventModel->getById($event_id);
+
+        $reservationModel = new Reservation($this->db);
+        $stmt = $reservationModel->getByEvent($event_id);
+        $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        include_once '../app/views/admin/reservations_list.php';
+    }
 }
