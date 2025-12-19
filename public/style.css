@@ -92,12 +92,6 @@ footer p {
     padding-bottom: 5px;
 }
 
-.event-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
 
 .event-info p {
     background: var(--bg-light);
@@ -353,4 +347,38 @@ form button:hover {
 .form-card textarea {
     min-height: 120px;
     resize: vertical; 
+}
+.timer-style {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+}
+.event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.info-item {
+    border-left: 3px solid #3498db; 
+    padding-left: 15px;
+}
+
+.timer-style {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #ebf5fb;
+    color: #2980b9;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: 1px solid #d6eaf8;
 }

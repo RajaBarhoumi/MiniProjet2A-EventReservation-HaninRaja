@@ -59,3 +59,33 @@ function validateFinalReservation() {
 
   return true;
 }
+function confirmDelete(eventTitle) {
+    return confirm(`Êtes-vous sûr de vouloir supprimer l'événement : "${eventTitle}" ?`);
+}
+/**
+ * Affiche le temps restant avant un événement.
+ @param {string} eventDateStr - Format "YYYY-MM-DD" récupéré de la BDD.
+ * @param {string} displayElementId - L'ID de l'élément HTML où afficher le compte.
+ */
+function startCountdown(eventDateStr, displayElementId) {
+    const countdownElement = document.getElementById(displayElementId);
+    if (!countdownElement) return;
+
+    const eventDate = new Date(eventDateStr).getTime();
+
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            countdownElement.innerHTML = "L'événement a déjà eu lieu.";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+        countdownElement.innerHTML = `⏳ Jours restants : ${days}j ${hours}h`;
+    }, 1000);
+}
