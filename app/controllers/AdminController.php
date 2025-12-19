@@ -57,35 +57,59 @@ class AdminController
     public function deleteEvent($id)
     {
         $this->checkAuth();
-        if ($this->eventModel->delete($id)) {
-            header("Location: index.php?action=admin_dashboard");
+        $event = $this->eventModel->getById($id);
+        if (!empty($event['image'])) {
+            $path = 'public/uploads/events/' . $event['image'];
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
+
+        $this->eventModel->delete($id);
+        header("Location: index.php?action=admin_dashboard");
+        exit();
     }
 
     public function saveEvent()
     {
         $this->checkAuth();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $this->eventModel->id = !empty($_POST['id']) ? $_POST['id'] : null;
-            $this->eventModel->title = $_POST['title'];
-            $this->eventModel->description = $_POST['description'];
-            $this->eventModel->date = $_POST['date'];
-            $this->eventModel->location = $_POST['location'];
-            $this->eventModel->seats = $_POST['seats'];
-
-            $this->eventModel->image = $_POST['image'] ?? 'default.jpg';
-            if ($this->eventModel->id) {
-                if ($this->eventModel->update()) {
-                    header("Location: index.php?action=admin_dashboard&msg=updated");
-                }
-            } else {
-                if ($this->eventModel->create()) {
-                    header("Location: index.php?action=admin_dashboard&msg=created");
-                }
-            }
-            exit();
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            return;
         }
+
+        $this->eventModel->id = !empty($_POST['id']) ? $_POST['id'] : null;
+        $this->eventModel->title = $_POST['title'];
+        $this->eventModel->description = $_POST['description'];
+        $this->eventModel->date = $_POST['date'];
+        $this->eventModel->location = $_POST['location'];
+        $this->eventModel->seats = $_POST['seats'];
+
+        $imageName = null;
+
+        if ($this->eventModel->id) {
+            $existingEvent = $this->eventModel->getById($this->eventModel->id);
+            $imageName = $existingEvent['image'] ?? null;
+        }
+
+        if (!empty($_FILES['image']['name'])) {
+            $uploadedImage = $this->uploadImage($_FILES['image']);
+            if ($uploadedImage) {
+                $imageName = $uploadedImage;
+            }
+        }
+
+        $this->eventModel->image = $imageName;
+
+        if ($this->eventModel->id) {
+            $this->eventModel->update();
+            header("Location: index.php?action=admin_dashboard&msg=updated");
+        } else {
+            $this->eventModel->create();
+            header("Location: index.php?action=admin_dashboard&msg=created");
+        }
+
+        exit();        
     }
 
     public function showEventForm($id = null)
