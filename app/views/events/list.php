@@ -1,4 +1,4 @@
-
+<?php include_once '../app/views/partials/header.php'; ?>
 <section class="welcome-section">
     <h1 style="text-align: center; color:#f557ae; margin-bottom: 40px;">
         📅 Événements à venir
@@ -17,8 +17,17 @@
                             echo date('d/m/Y à H:i', strtotime($event['date'])); 
                         ?>
                     </p>
+                    <?php if (!empty($event['image'])): ?>
+                        <img
+                            src="uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
+                            class="event-image"
+                            alt="Image de l'événement"
+                        >
+                    <?php endif; ?>
                     
-                    
+                     <a href="index.php?action=details&id=<?php echo $event['id']; ?>" class="btn-details">
+                        Voir les détails
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -28,4 +37,4 @@
         <?php endif; ?>
     </div>
 </section>
-
+<?php include_once '../app/views/partials/footer.php'; ?>
