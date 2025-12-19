@@ -111,4 +111,27 @@ class AdminController
         $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
         include_once '../app/views/admin/reservations_list.php';
     }
+
+    private function uploadImage($file)
+    {
+        if ($file['error'] !== UPLOAD_ERR_OK) {
+            return null;
+        }
+
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!in_array($file['type'], $allowedTypes)) {
+            return null;
+        }
+
+        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
+        $filename = uniqid('event_', true) . '.' . $extension;
+
+        $destination = 'public/uploads/events/' . $filename;
+
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
+            return $filename;
+        }
+
+        return null;
+    }
 }
