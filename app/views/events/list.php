@@ -17,6 +17,13 @@
                             echo date('d/m/Y à H:i', strtotime($event['date'])); 
                         ?>
                     </p>
+                    <?php if (!empty($event['image'])): ?>
+                        <img
+                            src="uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
+                            class="event-image"
+                            alt="Image de l'événement"
+                        >
+                    <?php endif; ?>
                     
                      <a href="index.php?action=details&id=<?php echo $event['id']; ?>" class="btn-details">
                         Voir les détails
