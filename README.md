@@ -84,16 +84,16 @@ Pour accéder au back-office administrateur :
 - Assurez-vous que les extensions PHP nécessaires (PDO, MySQL) sont activées dans votre configuration XAMPP.
 
 ## Demo
-**Liste des événements**
-- <img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/d2852818-f31f-4780-859f-2a2c882fafa1" />
-**Formulaire de réservation d'un événement**
-- <img width="1189" height="946" alt="image" src="https://github.com/user-attachments/assets/5250ca77-0b0b-4062-a648-b8c2a5d46c21" />
-**Page de connexion d'administrateur**
-- <img width="1396" height="741" alt="image" src="https://github.com/user-attachments/assets/11f606de-b973-4879-9e00-69685952f370" />
-**Tableau de bord de l'administrateur**
-- <img width="1438" height="948" alt="image" src="https://github.com/user-attachments/assets/88b69444-673f-4088-8c9a-a13ef1ed24fe" />
-**Liste des inscriptions à un événement**
-- <img width="1349" height="515" alt="image" src="https://github.com/user-attachments/assets/b7fd65fd-488c-48ed-a9c5-83180fe24894" />
+- **Liste des événements**
+<img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/d2852818-f31f-4780-859f-2a2c882fafa1" />
+- **Formulaire de réservation d'un événement**
+<img width="1189" height="946" alt="image" src="https://github.com/user-attachments/assets/5250ca77-0b0b-4062-a648-b8c2a5d46c21" />
+- **Page de connexion d'administrateur**
+<img width="1396" height="741" alt="image" src="https://github.com/user-attachments/assets/11f606de-b973-4879-9e00-69685952f370" />
+- **Tableau de bord de l'administrateur**
+<img width="1438" height="948" alt="image" src="https://github.com/user-attachments/assets/88b69444-673f-4088-8c9a-a13ef1ed24fe" />
+- **Liste des inscriptions à un événement**
+<img width="1349" height="515" alt="image" src="https://github.com/user-attachments/assets/b7fd65fd-488c-48ed-a9c5-83180fe24894" />
 
 
 
