@@ -1,7 +1,7 @@
 <?php
 if (!isset($event) || !is_array($event)) {
     echo "<div class='container'><p>Événement non trouvé.</p></div>";
-    return; 
+    return;
 }
 ?>
 <?php include_once '../app/views/partials/header.php'; ?>
@@ -10,7 +10,7 @@ if (!isset($event) || !is_array($event)) {
     <div class="event-details">
         <h1><?= htmlspecialchars($event['title'] ?? 'Titre indisponible') ?></h1>
         <p class="description"><strong>Description : </strong><br><?= nl2br(htmlspecialchars($event['description'] ?? 'Description indisponible')) ?></p>
-        
+
         <div class="event-info">
             <p><strong>📅 Date :</strong><br> <?= htmlspecialchars($event['date'] ?? 'Date indisponible') ?></p>
             <p><strong>📍 Lieu :</strong><br> <?= htmlspecialchars($event['location'] ?? 'Lieu indisponible') ?></p>
@@ -34,4 +34,20 @@ if (!isset($event) || !is_array($event)) {
         <button type="submit">Confirmer la réservation</button>
     </form>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        if (urlParams.has('success')) {
+            showToast("✅ Réservation effectuée avec succès !");
+
+            const cleanUrl = window.location.href.split('&success')[0];
+            window.history.replaceState({}, document.title, cleanUrl);
+        }
+
+        if (urlParams.has('error')) {
+            showToast("❌ Une erreur est survenue.", "error");
+        }
+    });
+</script>
 <?php include_once '../app/views/partials/footer.php'; ?>
