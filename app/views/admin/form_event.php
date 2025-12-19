@@ -46,7 +46,7 @@
             <?php if (!empty($event['image'])): ?>
                 <div class="form-group">
                     <p>Image actuelle :</p>
-                    <img src="public/uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
+                    <img src="uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
                         style="max-width: 200px; border-radius: 8px;">
                 </div>
             <?php endif; ?>

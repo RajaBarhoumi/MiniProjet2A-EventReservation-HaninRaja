@@ -20,6 +20,16 @@ if (!isset($event) || !is_array($event)) {
             <div class="info-item">
                 <p><strong>📍 Lieu :</strong><br> <?= htmlspecialchars($event['location']) ?></p>
             </div>
+            <div class="info-item">
+                <p><strong> Image :</strong></p>
+            </div>
+            <?php if (!empty($event['image'])): ?>
+                <img
+                    src="uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
+                    class="event-image"
+                    alt="Image de l'événement"
+                >
+            <?php endif; ?>
         </div>
     </div>
 

@@ -150,7 +150,8 @@ class AdminController
         $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
         $filename = uniqid('event_', true) . '.' . $extension;
 
-        $destination = 'public/uploads/events/' . $filename;
+        $uploadDir = __DIR__ . '/../../public/uploads/events/';
+        $destination = $uploadDir . $filename;
 
         if (move_uploaded_file($file['tmp_name'], $destination)) {
             return $filename;
