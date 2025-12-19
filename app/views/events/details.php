@@ -19,8 +19,7 @@ if (!isset($event) || !is_array($event)) {
 
 
     <h3>Réserver votre place</h3>
-    <form action="index.php?action=reserve" method="POST">
-        <input type="hidden" name="event_id" value="<?= htmlspecialchars($event['id'] ?? '') ?>">
+    <form action="index.php?action=reserve" method="POST" onsubmit="return validateFinalReservation()"> <input type="hidden" name="event_id" value="<?= htmlspecialchars($event['id'] ?? '') ?>">
 
         <label for="name">Nom complet :</label>
         <input type="text" id="name" name="name" placeholder="Ex: bob " required>
@@ -36,6 +35,7 @@ if (!isset($event) || !is_array($event)) {
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        setupPhoneValidation();
         const urlParams = new URLSearchParams(window.location.search);
 
         if (urlParams.has('success')) {
