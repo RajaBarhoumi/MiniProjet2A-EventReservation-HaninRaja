@@ -9,7 +9,7 @@
     <header>
         <nav>
             <div class="logo">
-                <a href="index.php" style="color: #e27396; font-weight: bold; text-decoration: none; font-size: 1.5rem;">MiniEvent</a>
+                <a href="index.php" style="color: #f00385; font-weight: bold; text-decoration: none; font-size: 1.5rem;">MiniEvent</a>
             </div>
             <ul>
                 <li><a href="index.php?action=list">Événements</a></li>

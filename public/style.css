@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #FAEDCB;
-    --accent-color: #F2C6DE;
+    --primary-color: #F2C6DE;
+    --accent-color: #f398ca;
     --text-light: black;
     --text-dark: black;
     --bg-light: #ffffff;
@@ -187,7 +187,7 @@ form button:hover {
 .btn-details {
     display: inline-block;
     margin-top: auto; 
-    background-color: var(--accent-color);
+    background-color: #f00385;
     color: white;
     text-align: center;
     padding: 10px;
@@ -250,7 +250,7 @@ form button:hover {
 }
 
 .btn-add {
-    background-color: #DBCDF0;
+    background-color: #f00385;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -259,7 +259,7 @@ form button:hover {
     transition: var(--transition);
 }
 
-.btn-add:hover { background-color: #ccadfa; }
+.btn-add:hover { background-color: #f398ca; }
 
 .admin-table {
     width: 100%;

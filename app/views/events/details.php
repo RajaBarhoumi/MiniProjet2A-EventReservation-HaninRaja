@@ -21,7 +21,7 @@ if (!isset($event) || !is_array($event)) {
                 <p><strong>📍 Lieu :</strong><br> <?= htmlspecialchars($event['location']) ?></p>
             </div>
             <div class="info-item">
-                <p><strong> Image :</strong></p>
+                <p><strong>📸 Image :</strong></p>
             </div>
             <?php if (!empty($event['image'])): ?>
                 <img
@@ -38,10 +38,10 @@ if (!isset($event) || !is_array($event)) {
         <input type="hidden" name="event_id" value="<?= htmlspecialchars($event['id'] ?? '') ?>">
 
         <label for="name">Nom complet :</label>
-        <input type="text" id="name" name="name" placeholder="Ex: Mohamed Ali" required>
+        <input type="text" id="name" name="name" placeholder="Ex: user" required>
 
         <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="mohamed@example.com" required>
+        <input type="email" id="email" name="email" placeholder="user@example.com" required>
 
         <label for="phone">Téléphone :</label>
         <input type="text" id="phone" name="phone" placeholder="Ex: 22333444" required>
