@@ -5,7 +5,7 @@
     <div class="form-card">
         <h2><?php echo isset($event) ? "✏️ Modifier l'événement" : "➕ Ajouter un nouvel événement"; ?></h2>
 
-        <form action="index.php?action=save_event" method="POST">
+        <form action="index.php?action=save_event" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $event['id'] ?? ''; ?>">
 
             <div class="form-group">
@@ -37,6 +37,19 @@
                 <label>Nombre de places disponibles :</label>
                 <input type="number" name="seats" value="<?php echo $event['seats'] ?? ''; ?>" min="1" required>
             </div>
+
+            <div class="form-group">
+                <label>Image de l'événement :</label>
+                <input type="file" name="image" accept="image/*">
+            </div>
+
+            <?php if (!empty($event['image'])): ?>
+                <div class="form-group">
+                    <p>Image actuelle :</p>
+                    <img src="public/uploads/events/<?php echo htmlspecialchars($event['image']); ?>"
+                        style="max-width: 200px; border-radius: 8px;">
+                </div>
+            <?php endif; ?>
 
             <button type="submit" class="btn-save">
                 <?php echo isset($event) ? "Mettre à jour" : "Créer l'événement"; ?>
