@@ -82,4 +82,6 @@ Pour accéder au back-office administrateur :
 ## 📝 Notes
 
 - Assurez-vous que les extensions PHP nécessaires (PDO, MySQL) sont activées dans votre configuration XAMPP.
+- <img width="1919" height="975" alt="image" src="https://github.com/user-attachments/assets/d2852818-f31f-4780-859f-2a2c882fafa1" />
+
 
