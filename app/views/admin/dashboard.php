@@ -20,12 +20,14 @@
                     <td><?php echo date('d/m/Y', strtotime($event['date'])); ?></td>
                     <td class="action-links">
                         <a href="index.php?action=edit_event&id=<?php echo $event['id']; ?>" class="link-edit">✏️ Modifier</a>
-                        
+
                         <a href="index.php?action=view_reservations&id=<?php echo $event['id']; ?>" class="link-view">👥 Inscriptions</a>
-                        
-                        <a href="index.php?action=delete_event&id=<?php echo $event['id']; ?>" 
-                           class="link-delete" 
-                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet événement ?')">🗑️ Supprimer</a>
+
+                        <a href="index.php?action=delete_event&id=<?php echo $event['id']; ?>"
+                            class="link-delete"
+                            onclick="return confirmDelete('<?php echo addslashes($event['title']); ?>')">
+                            🗑️ Supprimer
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>
